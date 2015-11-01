@@ -99,9 +99,7 @@ alias gs='git status'
 alias ga='git add -A .'
 alias cdp='cd $HOME/Dropbox/Web制作/Projects/'
 alias cdd='cd $HOME/Desktop'
-alias cdt='cd $HOME/Desktop/tmp'
 alias pwp='pwd|pbcopy'
-alias sshh='ssh -p 2222 tsunouchi@ssh163.heteml.jp'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 
 # --------------------------
