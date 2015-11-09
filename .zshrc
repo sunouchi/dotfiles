@@ -110,3 +110,6 @@ alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 function title {
   echo -ne "\033]0;$*\007"
 }
+
+# nodebrewのパス設定
+export PATH=$HOME/.nodebrew/current/bin:$PATH 
