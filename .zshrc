@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/sunouchi/.oh-my-zsh
+export ZSH=/Users/sunouchitakanari/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -97,7 +97,6 @@ alias df='df -h'
 alias gb='git branch'
 alias gs='git status'
 alias ga='git add -A .'
-alias cdp='cd $HOME/Dropbox/Web制作/Projects/'
 alias cdd='cd $HOME/Desktop'
 alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
