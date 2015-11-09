@@ -5,7 +5,7 @@
   name = sunouchi
   email = t@sunouchi.jp 
 [include]
-  path = ~/.gitconfig.local
+  path = ~/.gitconfig_local
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
