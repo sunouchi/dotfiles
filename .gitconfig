@@ -27,6 +27,7 @@
   up = pull --rebase       # pull rebase
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   ad = add
+  cm = commit -m 
   ci = commit -a           # modifiedなファイルを全てstageへ
   cam = commit -a --amend  # 直前のcommitを修正
   co = checkout

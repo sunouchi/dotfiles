@@ -91,7 +91,12 @@ nbproject/
 ## Build dir ##
 build/
 
+## Node dir ""
+node_modules/
+bower_components/
 
+## Sublime Text ""
+sftp-config.json
 
-## Others ##
+## Vim ##
 /vimfiles/bundle/
