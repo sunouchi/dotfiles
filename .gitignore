@@ -70,6 +70,7 @@ Icon
 *.log
 .cache/
 *.autosave
+*.pyc
 
 ## Vim ##
 *.un~
@@ -91,7 +92,7 @@ nbproject/
 ## Build dir ##
 build/
 
-## Node dir ""
+## Node ""
 node_modules/
 bower_components/
 
