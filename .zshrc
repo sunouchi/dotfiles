@@ -88,11 +88,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH 
 
+# rbenv
+eval "$(rbenv init -)"
 
-# --------------------------
-# Alias
-# --------------------------
+# alias
 alias la='ls -la'
 alias ll='ls -la'
 alias f='open .'
@@ -105,12 +107,7 @@ alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 alias be='bundle exec'
 
-# --------------------------
-# Others
-# --------------------------
+# functions
 function title {
   echo -ne "\033]0;$*\007"
 }
-
-# nodebrewのパス設定
-export PATH=$HOME/.nodebrew/current/bin:$PATH 
