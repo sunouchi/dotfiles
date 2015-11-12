@@ -103,6 +103,7 @@ alias ga='git add -A .'
 alias cdd='cd $HOME/Desktop'
 alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
+alias be='bundle exec'
 
 # --------------------------
 # Others
