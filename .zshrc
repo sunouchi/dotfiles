@@ -112,5 +112,9 @@ function title {
   echo -ne "\033]0;$*\007"
 }
 
-# nodebrewのパス設定
+# nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH 
+
+# rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
