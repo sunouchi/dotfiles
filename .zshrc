@@ -89,7 +89,12 @@ source $ZSH/oh-my-zsh.sh
 
 
 # nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH 
+#export PATH=$HOME/.nodebrew/current/bin:$PATH 
+#export NODEBREW_ROOT=/path/to/.nodebrew
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
