@@ -92,6 +92,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/.nodebrew/current/bin:$PATH 
 
 # rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
 # alias
