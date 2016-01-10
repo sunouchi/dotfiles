@@ -202,6 +202,7 @@
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
   Bundle 'tpope/vim-rails.git'
   Bundle 'slim-template/vim-slim.git'
+  Bundle 'tpope/vim-commentary.git'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
