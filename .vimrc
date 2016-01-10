@@ -201,6 +201,7 @@
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
   Bundle 'tpope/vim-rails.git'
+  Bundle 'slim-template/vim-slim.git'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
