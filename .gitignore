@@ -62,10 +62,7 @@ Icon
 ## backup,log ##
 *~
 ~*
-*.swp
-*.swm
-*.swn
-*.swo
+*.sw*
 .swp.*
 *.tmp
 *.bak
