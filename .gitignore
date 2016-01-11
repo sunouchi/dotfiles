@@ -63,6 +63,9 @@ Icon
 *~
 ~*
 *.swp
+*.swm
+*.swn
+*.swo
 .swp.*
 *.tmp
 *.bak

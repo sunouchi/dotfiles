@@ -160,9 +160,12 @@
   " インデントにハードタブを使う場合の設定。
   " タブ文字を2文字分の幅で表示する。
   "set shiftwidth=2
-  "set tabstop=2
+  set tabstop=2
+
+  " BackSpaceで改行を削除できるようにする
+  set backspace=2
   
-  
+
   "------------------------------------------------------------
   " Mappings {{{1
   " マッピング
@@ -177,8 +180,10 @@
   " Map <C-L> (redraw screen) to also turn off search highlighting until the
   " next search
   " <C-L>で検索後の強調表示を解除する
- "  nnoremap <C-L> :nohl<CR><C-L>
+  nnoremap <ESC><ESC> :nohl<CR>
   
+  " .vimrcを開く
+  nnoremap ,v :edit ~/.vimrc<CR>
   
   "------------------------------------------------------------
  
@@ -187,7 +192,17 @@
   "------------------------------------------------------------
   " vundleプラグインを使用するための記述
 
-  set nocompatible               " be iMproved
+  " Emmet
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,jade,slim,haml,css,scss,sass,less EmmetInstall
+
+  " Neocomplete
+  let g:neocomplete#enable_at_startup = 1
+
+  " Unite
+  nnoremap <C-L> :Unite<CR>
+
+ " Vundle 
   filetype off                   " required!
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
@@ -200,16 +215,19 @@
   Bundle 'tpope/vim-fugitive'
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-  Bundle 'tpope/vim-rails.git'
   Bundle 'slim-template/vim-slim.git'
+  Bundle 'tpope/vim-rails.git'
   Bundle 'tpope/vim-commentary.git'
   Bundle 'tpope/vim-surround.git'
+  Bundle 'mattn/emmet-vim.git'
+  Bundle 'Shougo/neocomplete.vim'
+  Bundle 'Townk/vim-autoclose'
+  Bundle 'Shougo/unite.vim'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
   " non github repos
   Bundle 'git://git.wincent.com/command-t.git'
-  Bundle 'git://github.com/mattn/zencoding-vim.git'
   " ...
   filetype plugin indent on     " required!
   "
