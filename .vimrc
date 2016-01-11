@@ -203,6 +203,7 @@
   Bundle 'tpope/vim-rails.git'
   Bundle 'slim-template/vim-slim.git'
   Bundle 'tpope/vim-commentary.git'
+  Bundle 'tpope/vim-surround.git'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
@@ -225,15 +226,15 @@
 
 
 
-"   "------------------------------------------------------------
-"   " Netrwは常にtree view
-"    Let g:netrw_liststyle = 3
-"   " CVSと.で始まるファイルは表示しない
-"    Let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
-"   " 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
-"    Let g:netrw_altv = 1
-"   " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
-"    Let g:netrw_alto = 1
+  "------------------------------------------------------------
+  " Netrwは常にtree view
+  let g:netrw_liststyle = 3
+  " CVSと.で始まるファイルは表示しない
+  " Let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+  " 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+  let g:netrw_altv = 1
+  " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+  let g:netrw_alto = 1
 
 
 
