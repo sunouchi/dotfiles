@@ -100,4 +100,5 @@ bower_components/
 sftp-config.json
 
 ## Vim ##
-/vimfiles/bundle/
+bundle/
+
