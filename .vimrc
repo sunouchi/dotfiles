@@ -183,10 +183,21 @@
   nnoremap <ESC><ESC> :nohl<CR>
   
   " .vimrcを開く
-  nnoremap ,v :edit ~/.vimrc<CR>
+  nnoremap .v :edit ~/.vimrc<CR>
   
+  " タブ切り替えショートカット
+  nnoremap <C-Tab> gt
+  nnoremap <C-S-Tab> gT
+
+  " 日本語切り替えショートカット割り当てられているvimコマンドを無効化する
+  noremap! <C-S-J> <Nop>
+
+  " ;と;を入れ替える
+  nnoremap ; :
+  nnoremap : ;
   "------------------------------------------------------------
- 
+
+
 
 
   "------------------------------------------------------------
@@ -259,8 +270,9 @@
 
   "------------------------------------------------------------
   " その他
-  autocmd QuickFixCmdPost *grep* cwindow
+  " autocmd QuickFixCmdPost *grep* cwindow
 
-
+  " マークアップで閉じタグと開始タグにジャンプする
+  source $VIMRUNTIME/macros/matchit.vim
   "------------------------------------------------------------
   
