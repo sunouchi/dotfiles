@@ -112,6 +112,7 @@ alias cdd='cd $HOME/Desktop'
 alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 alias be='bundle exec'
+alias tod='date "+%Y-%m-%d"'
 
 # functions
 function title {
