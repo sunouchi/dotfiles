@@ -211,7 +211,7 @@
   autocmd FileType html,jade,slim,haml,css,scss,sass,less EmmetInstall
 
   " Neocomplete
-  let g:neocomplete#enable_at_startup = 1
+  " let g:neocomplete#enable_at_startup = 1
 
   " Unite
   nnoremap <C-L> :Unite<CR>
@@ -237,6 +237,7 @@
   Bundle 'Shougo/neocomplete.vim'
   Bundle 'Townk/vim-autoclose'
   Bundle 'Shougo/unite.vim'
+  Bundle 'davidhalter/jedi-vim'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
