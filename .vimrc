@@ -238,6 +238,8 @@
   Bundle 'Townk/vim-autoclose'
   Bundle 'Shougo/unite.vim'
   Bundle 'davidhalter/jedi-vim'
+  Bundle 'marijnh/tern_for_vim'
+  Bundle 'tpope/vim-obsession'
   " vim-scripts repos
   Bundle 'L9'
   Bundle 'FuzzyFinder'
@@ -270,6 +272,7 @@
   let g:netrw_alto = 1
 
   "------------------------------------------------------------
+
 
 
   "------------------------------------------------------------
