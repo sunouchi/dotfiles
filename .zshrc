@@ -112,7 +112,10 @@ alias cdd='cd $HOME/Desktop'
 alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 alias be='bundle exec'
-alias tod='date "+%Y-%m-%d"'
+alias today='date "+%Y-%m-%d"'
+
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
 
 # functions
 function title {
