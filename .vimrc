@@ -232,6 +232,7 @@
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
   Bundle 'slim-template/vim-slim.git'
+  Bundle 'kchmck/vim-coffee-script'
   Bundle 'tpope/vim-rails.git'
   Bundle 'tpope/vim-commentary.git'
   Bundle 'tpope/vim-surround.git'
