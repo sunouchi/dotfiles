@@ -1,5 +1,6 @@
- colorscheme molokai
- set clipboard=unnamed,autoselect
+  colorscheme molokai
+  set clipboard=unnamed,autoselect
+  set t_Co=256
 
   " URL: http://vim.wikia.com/wiki/Example_vimrc
   " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
@@ -219,7 +220,8 @@
  " Vundle 
   filetype off                   " required!
   set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+  " call vundle#rc()
+  call vundle#begin()
   " let Vundle manage Vundle
   " required!
   Bundle 'gmarik/vundle'
@@ -245,6 +247,7 @@
   Bundle 'FuzzyFinder'
   " non github repos
   Bundle 'git://git.wincent.com/command-t.git'
+  call vundle#end() 
   " ...
   filetype plugin indent on     " required!
   "
