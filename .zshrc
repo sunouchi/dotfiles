@@ -113,6 +113,7 @@ alias pwp='pwd|pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
 alias be='bundle exec'
 alias today='date "+%Y-%m-%d"'
+alias updatedb='sudo /usr/libexec/locate.updatedb'
 
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
