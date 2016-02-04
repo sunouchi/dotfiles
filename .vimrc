@@ -195,6 +195,7 @@
 
   " ;と;を入れ替える
   nnoremap ; :
+  nnoremap : ;
   " nnoremap : ;
   
   " 連続コピペできるようにする
