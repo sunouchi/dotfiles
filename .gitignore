@@ -76,6 +76,7 @@ Icon
 *.un~
 Session.vim
 .netrwhist
+bundle/
 
 ## netbeans ##
 nbproject/
@@ -99,6 +100,5 @@ bower_components/
 ## Sublime Text ""
 sftp-config.json
 
-## Vim ##
-bundle/
-
+## tmux ##
+.tmux/
