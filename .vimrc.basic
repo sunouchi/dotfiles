@@ -1,0 +1,18 @@
+" Netrwは常にtree view
+let g:netrw_liststyle = 3
+
+" CVSと.で始まるファイルは表示しない
+" Let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+let g:netrw_altv = 1
+
+" 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+let g:netrw_alto = 1
+
+
+" その他
+" autocmd QuickFixCmdPost *grep* cwindow
+
+
+" マークアップで閉じタグと開始タグにジャンプする
+source $VIMRUNTIME/macros/matchit.vim

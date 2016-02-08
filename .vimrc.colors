@@ -1,0 +1,9 @@
+" Colorscheme
+colorscheme molokai
+
+" 256色
+set t_Co=256
+
+" 色づけをオン
+syntax on
+

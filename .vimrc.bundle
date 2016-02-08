@@ -1,0 +1,81 @@
+"------------------------------------------------------------
+" vundleで管理しているプラグインのロード
+
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+" call vundle#rc()
+" let Vundle manage Vundle
+
+
+" required!
+Bundle 'gmarik/vundle'
+
+" vimでgitを使う
+Bundle 'tpope/vim-fugitive'
+
+" カーソル移動を爆速にする
+Bundle 'Lokaltog/vim-easymotion'
+
+" HTML入力を楽にする
+Bundle 'mattn/emmet-vim.git'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" 指定した範囲を括弧で囲む
+Bundle 'tpope/vim-surround.git'
+
+" 自動補完
+Bundle 'Shougo/neocomplete.vim'
+
+" 自動補完(Python)
+Bundle 'davidhalter/jedi-vim'
+
+" 自動補完(JavaScript)
+Bundle 'marijnh/tern_for_vim'
+
+" 閉じタグや閉じ括弧を自動的に挿入する
+Bundle 'Townk/vim-autoclose'
+
+" 自動閉じタグ
+" Bundle 'yuroyoro/vim-autoclose'
+
+" セッション保存・復元
+Bundle 'tpope/vim-obsession'
+
+" vim統合インターフェイス
+Bundle 'Shougo/unite.vim'
+
+" ファイル検索
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+" ファイル検索
+Bundle 'git://git.wincent.com/command-t.git'
+
+" コメントアウト
+Bundle 'tpope/vim-commentary.git'
+
+" Syntax(slim)
+Bundle 'slim-template/vim-slim.git'
+
+" Syntax(coffee-script)
+Bundle 'kchmck/vim-coffee-script'
+
+" Syntax(rails)
+Bundle 'tpope/vim-rails.git'
+
+
+call vundle#end() 
+filetype plugin indent on     " required!
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+"------------------------------------------------------------

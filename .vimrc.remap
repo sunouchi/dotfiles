@@ -1,0 +1,26 @@
+"------------------------------------------------------------
+" Mappings
+
+" Yの動作をDやCと同じにする
+map Y y$
+
+" <C-L>で検索後の強調表示を解除する
+nnoremap <ESC><ESC> :nohl<CR>
+
+" タブ切り替えショートカット
+nnoremap <C-Tab> gt
+nnoremap <C-S-Tab> gT
+
+" 日本語切り替えショートカット割り当てられているvimコマンドを無効化する
+noremap! <C-S-J> <Nop>
+
+" ;と;を入れ替える
+nnoremap ; :
+nnoremap : ;
+" nnoremap : ;
+
+" 連続コピペできるようにする
+vnoremap <silent> <C-p> "0p<CR>
+
+" .vimrcを開く
+nnoremap .v :edit ~/.vimrc<CR>
