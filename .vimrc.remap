@@ -14,13 +14,33 @@ nnoremap <C-S-Tab> gT
 " 日本語切り替えショートカット割り当てられているvimコマンドを無効化する
 noremap! <C-S-J> <Nop>
 
+" 表示行単位で上下移動するように
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
+
+" 逆に普通の行単位で移動したい時のために逆の map も設定しておく
+nnoremap gj j
+
 " ;と;を入れ替える
 nnoremap ; :
 nnoremap : ;
-" nnoremap : ;
+
+" 削除キーでヤンクしない
+nnoremap x "_x
+" nnoremap d "_d
+nnoremap D "_D
 
 " 連続コピペできるようにする
 vnoremap <silent> <C-p> "0p<CR>
 
 " .vimrcを開く
 nnoremap .v :edit ~/.vimrc<CR>
+
+" Tab操作
+nnoremap <silent> tc :<C-u>tabnew<CR>:tabmove<CR>
+nnoremap <silent> tk :<C-u>tabclose<CR>
+nnoremap <silent> tn :<C-u>tabnext<CR>
+nnoremap <silent> tp :<C-u>tabprevious<CR>
+

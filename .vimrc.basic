@@ -11,7 +11,7 @@ let g:netrw_alto = 1
 
 
 " その他
-" autocmd QuickFixCmdPost *grep* cwindow
+" #autocmd QuickFixCmdPost *grep* cwindow
 
 
 " マークアップで閉じタグと開始タグにジャンプする

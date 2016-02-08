@@ -7,3 +7,12 @@ autocmd FileType html,jade,slim,haml,css,scss,sass,less EmmetInstall
 
 " Unite
 nnoremap <C-L> :Unite<CR>
+
+" FuzzyFinder.vim
+nnoremap <Space>f f
+nnoremap <Space>F F
+nnoremap f <Nop>
+nnoremap <silent> fb :<C-u>FufBuffer!<CR>
+nnoremap <silent> ff :<C-u>FufFile! <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
+" nnoremap <silent> gb :<C-u>tabnew<CR>:tabmove<CR>:FufBuffer!<CR>
+" nnoremap <silent> gf :<C-u>tabnew<CR>:tabmove<CR>:FufFile! <C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
