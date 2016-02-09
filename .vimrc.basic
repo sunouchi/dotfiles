@@ -16,3 +16,18 @@ let g:netrw_alto = 1
 
 " マークアップで閉じタグと開始タグにジャンプする
 source $VIMRUNTIME/macros/matchit.vim
+
+
+" vimrcが更新されたら自動で読み込む
+augroup source-vimrc
+  autocmd!
+  autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
+  autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
+augroup END
+
+
+" 外部で変更があったファイルを自動的に読み込む
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
