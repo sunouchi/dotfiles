@@ -36,7 +36,7 @@ nnoremap D "_D
 vnoremap <silent> <C-p> "0p<CR>
 
 " .vimrcを開く
-nnoremap .v :edit ~/.vimrc<CR>
+" nnoremap .v :edit ~/.vimrc<CR>
 
 " Tab操作
 nnoremap <silent> tc :<C-u>tabnew<CR>:tabmove<CR>

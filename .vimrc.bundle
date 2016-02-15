@@ -46,6 +46,13 @@ Bundle 'tpope/vim-obsession'
 " vim統合インターフェイス
 Bundle 'Shougo/unite.vim'
 
+" uniteプラグイン
+Bundle 'Shougo/neomru.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimfiler.vim'
+Bundle 'ujihisa/unite-locate'
+Bundle 'kmnk/vim-unite-svn'
+
 " ファイル検索
 Bundle 'L9'
 Bundle 'FuzzyFinder'

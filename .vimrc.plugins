@@ -1,18 +1,64 @@
 " Emmet
+" --------------------------------------
 let g:user_emmet_install_global = 0
 autocmd FileType html,jade,slim,haml,css,scss,sass,less EmmetInstall
 
+
 " Neocomplete
-" let g:neocomplete#enable_at_startup = 1
+" --------------------------------------
+let g:neocomplete#enable_at_startup = 1
+
 
 " Unite
+" --------------------------------------
+" Uniteの呼び出し
 nnoremap <C-L> :Unite<CR>
 
-" FuzzyFinder.vim
-" nnoremap <Space>f f
-nnoremap <Space>F F
-" nnoremap f <Nop>
-nnoremap <silent> fub :<C-u>FufBuffer!<CR>
-nnoremap <silent> fuf :<C-u>FufFile! <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-" nnoremap <silent> gb :<C-u>tabnew<CR>:tabmove<CR>:FufBuffer!<CR>
-" nnoremap <silent> gf :<C-u>tabnew<CR>:tabmove<CR>:FufFile! <C-r>=expand('#:~:.')[:-1-len(expand('#:~:.:t'))]<CR><CR>
+"prefix keyの設定
+nmap <Space> [unite]
+
+"スペースキーとaキーでカレントディレクトリを表示
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+"スペースキーとfキーでバッファと最近開いたファイル一覧を表示
+nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
+"スペースキーとdキーで最近開いたディレクトリを表示
+nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
+"スペースキーとbキーでバッファを表示
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
+"スペースキーとrキーでレジストリを表示
+nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
+"スペースキーとtキーでタブを表示
+nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
+"スペースキーとENTERキーでfile_rec:!
+nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec:!<CR>
+"unite.vimを開いている間のキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+"スペースキーとgキーでgrep
+nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
+function! s:unite_my_settings()"{{{
+    " ESCでuniteを終了
+    nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction"}}}
+
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+
+
+" VimFiler
+" --------------------------------------
+" デフォルトのファイラをVimFilerに設定する
+:let g:vimfiler_as_default_explorer = 1
+
+" 編集する際は別タブで開く
+let g:vimfiler_edit_action = 'tabopen'
+
+" 不可視ファイルの設定
+let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
