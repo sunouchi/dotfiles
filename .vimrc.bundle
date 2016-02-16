@@ -28,6 +28,10 @@ Bundle 'tpope/vim-surround.git'
 " 自動補完
 Bundle 'Shougo/neocomplete.vim'
 
+" 自動補完
+Bundle 'Shougo/neosnippet.vim'
+Bundle 'Shougo/neosnippet-snippets'
+
 " 自動補完(Python)
 Bundle 'davidhalter/jedi-vim'
 
@@ -39,6 +43,9 @@ Bundle 'Townk/vim-autoclose'
 
 " 自動閉じタグ
 " Bundle 'yuroyoro/vim-autoclose'
+
+" ステータスラインの表示内容が強化
+Bundle 'itchyny/lightline.vim'
 
 " セッション保存・復元
 Bundle 'tpope/vim-obsession'
@@ -63,14 +70,16 @@ Bundle 'git://git.wincent.com/command-t.git'
 " コメントアウト
 Bundle 'tpope/vim-commentary.git'
 
-" Syntax(slim)
+" Syntax
 Bundle 'slim-template/vim-slim.git'
-
-" Syntax(coffee-script)
 Bundle 'kchmck/vim-coffee-script'
-
-" Syntax(rails)
 Bundle 'tpope/vim-rails.git'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'hokaccha/vim-html5validator'
+Bundle 'AtsushiM/sass-compile.vim'
+Bundle ''
 
 
 call vundle#end() 
