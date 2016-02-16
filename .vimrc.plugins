@@ -6,7 +6,14 @@ autocmd FileType html,jade,slim,haml,css,scss,sass,less EmmetInstall
 
 " Neocomplete
 " --------------------------------------
+" 起動時に有効
 let g:neocomplete#enable_at_startup = 1
+" 1番目の候補を自動選択
+let g:neocomplete#enable_auto_select = 1
+" 大文字小文字のちがいを無視
+let g:neocomplete#enable_ignore_case = 1
+" TABで補完項目を決定する
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 " Unite
