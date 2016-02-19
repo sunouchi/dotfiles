@@ -79,7 +79,9 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'AtsushiM/sass-compile.vim'
-Bundle ''
+
+" WakeTime
+Bundle 'wakatime/vim-wakatime'
 
 
 call vundle#end() 
