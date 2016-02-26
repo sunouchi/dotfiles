@@ -27,19 +27,14 @@ Bundle 'tpope/vim-surround.git'
 
 " 自動補完
 Bundle 'Shougo/neocomplete.vim'
-
-" 自動補完 (wordpress)
-Bundle 'miya0001/vim-dict-wordpress.git'
-
-" 自動補完
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'Shougo/neosnippet-snippets'
-
 " 自動補完(Python)
 Bundle 'davidhalter/jedi-vim'
-
 " 自動補完(JavaScript)
 Bundle 'marijnh/tern_for_vim'
+" 自動補完 (wordpress)
+Bundle 'miya0001/vim-dict-wordpress.git'
 
 " 閉じタグや閉じ括弧を自動的に挿入する
 Bundle 'Townk/vim-autoclose'
