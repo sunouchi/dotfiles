@@ -44,3 +44,6 @@ nnoremap <silent> tk :<C-u>tabclose<CR>
 nnoremap <silent> tn :<C-u>tabnext<CR>
 nnoremap <silent> tp :<C-u>tabprevious<CR>
 
+" タグジャンプ
+nnoremap <C-h> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
