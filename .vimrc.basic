@@ -13,6 +13,22 @@ let g:netrw_alto = 1
 " その他
 " #autocmd QuickFixCmdPost *grep* cwindow
 
+" バックアップファイル
+set backup
+set backupdir =$HOME/.vim/tmp/backup/
+set backupext =-vimbackup
+set backupskip =
+
+" スワップファイル
+set directory =$HOME/.vim/tmp/swap/
+
+" undoファイル
+set undofile
+set undodir =$HOME/.vim/tmp/undo/
+
+" viminfoファイル
+set viminfo ='100,n$HOME/.vim/tmp/info/viminfo/
+
 
 " マークアップで閉じタグと開始タグにジャンプする
 source $VIMRUNTIME/macros/matchit.vim
