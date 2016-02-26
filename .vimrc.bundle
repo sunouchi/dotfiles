@@ -28,6 +28,9 @@ Bundle 'tpope/vim-surround.git'
 " 自動補完
 Bundle 'Shougo/neocomplete.vim'
 
+" 自動補完 (wordpress)
+Bundle 'miya0001/vim-dict-wordpress.git'
+
 " 自動補完
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'Shougo/neosnippet-snippets'

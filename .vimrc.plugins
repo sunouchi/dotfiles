@@ -31,6 +31,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 
+" vim-dict-wordpress
+" --------------------------------------
+autocmd FileType php :set dictionary=~/.vim/bundle/vim-dict-wordpress/*.dict
+
+
 " Unite
 " --------------------------------------
 " Uniteの呼び出し
