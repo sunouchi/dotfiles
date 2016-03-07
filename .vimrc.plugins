@@ -69,6 +69,9 @@ nnoremap <C-L> :Unite<CR>
 "prefix keyの設定
 nmap <Space> [unite]
 
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+
 "スペースキーとaキーでカレントディレクトリを表示
 nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "スペースキーとfキーでバッファと最近開いたファイル一覧を表示
