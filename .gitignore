@@ -103,3 +103,6 @@ sftp-config.json
 
 ## tmux ##
 .tmux/
+
+## ctags ##
+tags
