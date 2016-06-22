@@ -12,6 +12,11 @@ eval "$(rbenv init -)"
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
+# homebrew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+   source $(brew --prefix)/etc/brew-wrap
+fi
+
 # functions
 function title {
   echo -ne "\033]0;$*\007"
