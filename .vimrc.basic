@@ -14,13 +14,15 @@ let g:netrw_alto = 1
 " #autocmd QuickFixCmdPost *grep* cwindow
 
 " バックアップファイル
-set backup
-set backupdir =$HOME/.vim/tmp/backup/
-set backupext =-vimbackup
-set backupskip =
+set nobackup
+" set backup
+" set backupdir =$HOME/.vim/tmp/backup/
+" set backupext =-vimbackup
+" set backupskip =
 
 " スワップファイル
-set directory =$HOME/.vim/tmp/swap/
+set noswapfile
+" set directory =$HOME/.vim/tmp/swap/
 
 " undoファイル
 set undofile
