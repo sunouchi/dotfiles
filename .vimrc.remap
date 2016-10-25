@@ -28,9 +28,9 @@ nnoremap ; :
 nnoremap : ;
 
 " 削除キーでヤンクしない
-nnoremap x "_x
+" nnoremap x "_x
 " nnoremap d "_d
-nnoremap D "_D
+" nnoremap D "_D
 
 " 連続コピペできるようにする
 vnoremap <silent> <C-p> "0p<CR>
