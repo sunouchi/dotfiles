@@ -13,7 +13,7 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 
 " vimでgitを使う
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 
 " カーソル移動を爆速にする
 Bundle 'Lokaltog/vim-easymotion'
@@ -34,13 +34,10 @@ Bundle 'davidhalter/jedi-vim'
 " 自動補完(JavaScript)
 Bundle 'marijnh/tern_for_vim'
 " 自動補完 (wordpress)
-Bundle 'miya0001/vim-dict-wordpress.git'
+" Bundle 'miya0001/vim-dict-wordpress.git'
 
 " 閉じタグや閉じ括弧を自動的に挿入する
 Bundle 'Townk/vim-autoclose'
-
-" 自動閉じタグ
-" Bundle 'yuroyoro/vim-autoclose'
 
 " ステータスラインの表示内容が強化
 Bundle 'itchyny/lightline.vim'
@@ -52,18 +49,18 @@ Bundle 'tpope/vim-obsession'
 Bundle 'Shougo/unite.vim'
 
 " uniteプラグイン
-Bundle 'Shougo/neomru.vim'
+" Bundle 'Shougo/neomru.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/vimfiler.vim'
-Bundle 'ujihisa/unite-locate'
-Bundle 'kmnk/vim-unite-svn'
+" Bundle 'ujihisa/unite-locate'
+" Bundle 'kmnk/vim-unite-svn'
 
 " ファイル検索
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
 
 " ファイル検索
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://git.wincent.com/command-t.git'
 
 " コメントアウト
 Bundle 'tpope/vim-commentary.git'
@@ -79,7 +76,7 @@ Bundle 'hokaccha/vim-html5validator'
 Bundle 'AtsushiM/sass-compile.vim'
 
 " WakeTime
-Bundle 'wakatime/vim-wakatime'
+" Bundle 'wakatime/vim-wakatime'
 
 
 call vundle#end() 
