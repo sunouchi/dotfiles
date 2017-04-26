@@ -1,4 +1,4 @@
-alias ls='ls -la'
+alias la='ls -la'
 alias ll='ls -la'
 alias f='open .'
 alias df='df -h'
