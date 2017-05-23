@@ -114,11 +114,26 @@
 ;; -----------------------------------
 ;; 各パッケージ設定
 ;; -----------------------------------
+;;helm
 (require 'helm-config)
-
+;;open-junk-file
 (require 'open-junk-file)
 (setq open-junk-file-format "~/junk/%y%m%d/%H%M%S.")
 (global-set-key (kbd "C-x j") 'open-junk-file)
+;;lispxmp
+;;emacs-lisp-modeでC-c C-dを押すと解釈
+(require 'lispxmp)
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+;;括弧の対応を取りながら編集
+(require 'paredit)
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
+;; ~/junk/以外で自動バイトコンパイル
+(require 'auto-async-byte-compile)
+(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+;; 括弧に色付け
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
