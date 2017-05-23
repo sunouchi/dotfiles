@@ -1,11 +1,14 @@
-;;メニューバーを非表示にする
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; -----------------------------------
+;; elispパッケージの有効化
+;; -----------------------------------
+;;パッケージ有効化
 (package-initialize)
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+
+;;メニューバーを非表示にする
 (menu-bar-mode 0)
 ;;ツールバーを非表示にする
 (tool-bar-mode 0)
@@ -73,14 +76,6 @@
 
 
 
-;; -----------------------------------
-;; elispパッケージの有効化
-;; -----------------------------------
-;;パッケージ有効化
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
 
 
 
@@ -123,5 +118,19 @@
 
 (require 'open-junk-file)
 (setq open-junk-file-format "~/junk/%y%m%d/%H%M%S.")
-(global-set-key (kbd "C-x C-z") 'open-junk-file)
+(global-set-key (kbd "C-x j") 'open-junk-file)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
