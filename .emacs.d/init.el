@@ -127,12 +127,18 @@
 ;;括弧の対応を取りながら編集
 (require 'paredit)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
-;; ~/junk/以外で自動バイトコンパイル
+;;~/junk/以外で自動バイトコンパイル
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
 (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
-;; 括弧に色付け
+;;括弧に色付け
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+;;emacsclient
+;;error: (void-function server-running-p)と出てエラーになるので、とりあえず無効化
+;(require 'server)
+;(unless (server-running-p)
+;  (server-start))
+
 
 
 (custom-set-variables
