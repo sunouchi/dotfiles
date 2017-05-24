@@ -8,6 +8,9 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
+;; -----------------------------------
+;; frame
+;; -----------------------------------
 ;;メニューバーを非表示にする
 (menu-bar-mode 0)
 ;;ツールバーを非表示にする
@@ -29,7 +32,7 @@
 ;;ガベッジコレクションを実行するまでの割当メモリの閾値を増やす
 (setq gc-cons-threshold(* 50 gc-cons-threshold))
 ;;kill-lineで行末も削除する
-(setq kill-whole-linet t)
+(setq kill-whole-line t)
 ;;ログの記録量を増やす
 (setq message-log-max 10000)
 ;;履歴数を増やす
@@ -39,10 +42,20 @@
 ;;ショートカットでコメント化
 ;;必要なプラグインをインストールできていないので無効化
 ;;(transient-mark-mode t)
+;;ファイルサイズを表示
+(size-indication-mode t)
+;;タイトルバーにファイルのフルパスを表示する
+;;表示が反映されないのでコメントアウト
+;(setq frame-title-format "%f")
+;;タブ文字の表示幅
+(setq-default tab-width 4)
+;;インデントにタブ文字を使用しない
+(setq-default indent-tabs-mode nil)
+
 
 
 ;; -----------------------------------
-;; キーバインド設定
+;; key binding
 ;; -----------------------------------
 ;;カーソル前の文字を1文字消す
 (global-set-key "\C-h" 'delete-backward-char)
@@ -52,6 +65,18 @@
 (global-set-key (kbd "M-g") 'goto-line)
 ;;改行して、インデントの調節を行う
 (global-set-key (kbd "C-m") 'newline-and-indent)
+;;"C-t"でウィンドウを切り替える
+(global-set-key (kbd "C-t") 'other-window)
+
+
+
+;; -----------------------------------
+;; theme
+;; -----------------------------------
+;;テーマの読み込み
+(load-theme 'dark-mint)
+;;カーソル位置の行を強調表示する
+(global-hl-line-mode t)
 
 
 
@@ -59,9 +84,9 @@
 ;; パッケージ設定
 ;; -----------------------------------
 ;;行数を表示する
-(global-linum-mode t)
+;(global-linum-mode t)
 ;;行番号の表示領域として4桁分を予め確保する
-(setq linum-format "%5d")
+;(setq linum-format "%5d")
 ;;カーソルがどの関数の中にあるかを
 ;;モードラインに表示する
 (which-function-mode 1)
@@ -95,19 +120,6 @@
 
 
 
-;;現在行のハイライト
-(defface my-hl-line-face
-;;背景がdarkならば背景色を紺に
-'((((class color) (background dark))
-   (:background "NavyBlur" t))
-   ;;背景がlightならば背景色を緑に
-   (((class color) (background light))
-    (:background "LightGoldenrodYellow" t))
-   (t (:bold t)))
-"hl-line'smyface")
-(setq hl-line-face 'my-hl-line-face)
-;;カーソル位置の行を強調表示する
-(global-hl-line-mode t)
 
 
 
@@ -125,8 +137,8 @@
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 ;;括弧の対応を取りながら編集
-(require 'paredit)
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
+;(require 'paredit)
+;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
 ;;~/junk/以外で自動バイトコンパイル
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -146,9 +158,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("1b1e54d9e0b607010937d697556cd5ea66ec9c01e555bb7acea776471da59055" default)))
  '(package-selected-packages
    (quote
-    (ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
+    (dark-mint-theme ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
