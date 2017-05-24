@@ -81,6 +81,28 @@
 
 
 ;; -----------------------------------
+;; バックアップとオートセーブ
+;; -----------------------------------
+;;バックアップファイルの作成場所をシステムのTempディレクトリに変更する
+;(setq backup-directry-alist
+;      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+
+
+;; -----------------------------------
+;; 矩形編集
+;; -----------------------------------
+;;cua-modeの設定
+;;矩形編集できないので、いったん無効化する
+;(cua-mode t)
+;;CUAキーバインドを無効化
+;(setq cua-enable-cua-keys nil)
+
+
+
+;; -----------------------------------
 ;; パッケージ設定
 ;; -----------------------------------
 ;;行数を表示する
@@ -151,6 +173,39 @@
 ;(unless (server-running-p)
 ;  (server-start))
 
+;;auto-insatllの設定
+;(when (require 'auto-install nil t)
+                                        ;
+;;インストールディレクトリの設定
+;  (setq auto-install-directory "~/.emacs.d/elisp/")
+;  ;;EmacsWikiに登録されているelispの名前を取得する
+;  (auto-install-update-emacswiki-package-name t)
+;  ;;install-lispの関数を利用可能にする
+;  (auto-install-compatibility-setup))
+
+;;auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-modes 'text-mode)        ;text-modeでも自動的に有効化する
+(add-to-list 'ac-modes 'fundamental-mode) ;fundamental-modeでも自動的に有効化する
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'yatex-mode)
+(ac-set-trigger-key "TAB")
+(setq ac-use-menu-map t) ;補完メニュー表示時にC-n/C-pで補完候補選択
+(setq ac-use-fuzzy t) ;曖昧マッチ
+
+;;Elscreen
+;;elscreenのプレフィックスキーを変更する（初期値はC-z）
+;(setq elscreen-prefix-key (kbd "C-t"))
+;(elscreen-start)
+;(when (require 'elscreen nil t)
+;  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+;  (if window-system
+;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+;    (define-key elscreen-map (kbd "C-z") 'supend-emacs)))
+
+
+
 
 
 (custom-set-variables
@@ -163,7 +218,7 @@
     ("1b1e54d9e0b607010937d697556cd5ea66ec9c01e555bb7acea776471da59055" default)))
  '(package-selected-packages
    (quote
-    (dark-mint-theme ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
+    (elscreen auto-complete auto-install dark-mint-theme ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
