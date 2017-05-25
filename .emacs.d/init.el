@@ -66,7 +66,10 @@
 ;;改行して、インデントの調節を行う
 (global-set-key (kbd "C-m") 'newline-and-indent)
 ;;"C-t"でウィンドウを切り替える
-(global-set-key (kbd "C-t") 'other-window)
+;;elscreenで使うからこちらは無効化する
+;(global-set-key (kbd "C-T") 'other-window)
+
+
 
 
 
@@ -194,15 +197,11 @@
 (setq ac-use-menu-map t) ;補完メニュー表示時にC-n/C-pで補完候補選択
 (setq ac-use-fuzzy t) ;曖昧マッチ
 
-;;Elscreen
-;;elscreenのプレフィックスキーを変更する（初期値はC-z）
-;(setq elscreen-prefix-key (kbd "C-t"))
-;(elscreen-start)
-;(when (require 'elscreen nil t)
-;  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する
-;  (if window-system
-;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
-;    (define-key elscreen-map (kbd "C-z") 'supend-emacs)))
+;;elscreen
+(require 'elscreen)
+(setq elscreen-prefix-key (kbd "C-t"))
+(elscreen-start)
+
 
 
 
