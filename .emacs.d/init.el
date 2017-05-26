@@ -68,7 +68,8 @@
 ;;"C-t"でウィンドウを切り替える
 ;;elscreenで使うからこちらは無効化する
 ;(global-set-key (kbd "C-T") 'other-window)
-
+;;Macのcommanをメタキーとして使用する
+(setq mac-command-key-is-meta t)
 
 
 
@@ -162,8 +163,8 @@
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 ;;括弧の対応を取りながら編集
-;(require 'paredit)
-;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
+;;(require 'paredit)
+;;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
 ;;~/junk/以外で自動バイトコンパイル
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -217,7 +218,7 @@
     ("1b1e54d9e0b607010937d697556cd5ea66ec9c01e555bb7acea776471da59055" default)))
  '(package-selected-packages
    (quote
-    (elscreen auto-complete auto-install dark-mint-theme ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
+    (auto-complete dark-mint-theme elscreen ag rainbow-delimiters auto-async-byte-compile paredit lispxmp open-junk-file helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
