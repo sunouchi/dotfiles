@@ -4,8 +4,13 @@
 ;;パッケージ有効化
 (package-initialize)
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(setq package-archives
+      '(("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")))
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
 ;; -----------------------------------
@@ -69,7 +74,7 @@
 ;;elscreenで使うからこちらは無効化する
 ;(global-set-key (kbd "C-T") 'other-window)
 ;;Macのcommanをメタキーとして使用する
-(setq mac-command-key-is-meta t)
+;(setq mac-command-key-is-meta t)
 
 
 
@@ -199,9 +204,9 @@
 (setq ac-use-fuzzy t) ;曖昧マッチ
 
 ;;elscreen
-(require 'elscreen)
-(setq elscreen-prefix-key (kbd "C-t"))
-(elscreen-start)
+;(require 'elscreen)
+;(setq elscreen-prefix-key (kbd "C-t"))
+;(elscreen-start)
 
 
 
