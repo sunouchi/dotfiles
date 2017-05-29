@@ -3,14 +3,17 @@
 ;; -----------------------------------
 ;;パッケージ有効化
 (package-initialize)
+;;
+;(add-to-list 'load-path' "~/.emacs.d/elpa/dired-toggle-20140907.1349/)
+
 (require 'package)
 (setq package-archives
       '(("marmalade" . "http://marmalade-repo.org/packages/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(setq select-enable-clipboard t)
 
 
 ;; -----------------------------------
@@ -159,10 +162,17 @@
 ;; -----------------------------------
 ;;helm
 (require 'helm-config)
+;;helm-M-xをM-xにバインドする
+(global-set-key (kbd "M-x") 'helm-M-x)
+;;前のM-xバインドを退避させる。#けど正しく動いてないっぽい
+(global-set-key (kbd "C-c M-x") 'M-x)
+
+
 ;;open-junk-file
 (require 'open-junk-file)
 (setq open-junk-file-format "~/junk/%y%m%d/%H%M%S.")
 (global-set-key (kbd "C-x j") 'open-junk-file)
+
 ;;lispxmp
 ;;emacs-lisp-modeでC-c C-dを押すと解釈
 (require 'lispxmp)
@@ -176,6 +186,7 @@
 (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
 ;;括弧に色付け
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
 ;;emacsclient
 ;;error: (void-function server-running-p)と出てエラーになるので、とりあえず無効化
 ;(require 'server)
@@ -208,8 +219,24 @@
 ;(setq elscreen-prefix-key (kbd "C-t"))
 ;(elscreen-start)
 
+;;dired
+;;diredを2つのウィンドウで開いているときに、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
+;(setq dired-dwim-target t)
+;;ディレクトリを再帰的にコピーする
+;(setq dired-recursive-copies 'always)
+;;diredバッファでC-sしたときにファイル名だけにマッチするように
+;(setq dired-isearch-filenames t)
 
+;;dired-toggle
+;;横幅を設定
+;(setq dired-toggle-window-size 20)
 
+;;winner-mode
+(winner-mode 1)
+;;C-qで直前のウィンドウ構成に戻す
+(global-set-key (kbd "C-q") 'winner-undo)
+;;元のC-qを別なキーに退避させる
+(global-set-key (kbd "C-c q") 'quoted-insert)
 
 
 
