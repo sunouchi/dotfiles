@@ -6,6 +6,18 @@
 ;;
 ;(add-to-list 'load-path' "~/.emacs.d/elpa/dired-toggle-20140907.1349/)
 
+;;指定したload-pathを再帰的に読み込む
+(defun add-to-load-path(&rest paths)
+  (let (path)
+    (dolist (pathpathspaths)
+      (let ((default-directory
+	(expand-file-name (concat user-emacs-directory path))))
+	(add-to-list 'load-path default-directory)
+	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+	(normal-top-level-add-subdirs-to-load-path))))))
+;;引数のディレクトリとそのサブディレクトリをload-pathに追加
+(add-to-load-path "elisp" "conf" "public_repos")
+
 (require 'package)
 (setq package-archives
       '(("marmalade" . "http://marmalade-repo.org/packages/")
@@ -54,11 +66,17 @@
 (size-indication-mode t)
 ;;タイトルバーにファイルのフルパスを表示する
 ;;表示が反映されないのでコメントアウト
-;(setq frame-title-format "%f")
+(setq frame-title-format "%f")
 ;;タブ文字の表示幅
 (setq-default tab-width 4)
 ;;インデントにタブ文字を使用しない
 (setq-default indent-tabs-mode nil)
+;;フォント設定
+(set-face-attribute 'default nil
+                    :height 130)
+;;8行進む/戻る
+(global-set-key (kbd "M-n") (kbd "C-u 8 C-n"))
+(global-set-key (kbd "M-p") (kbd "C-u 8 C-p"))
 
 
 
@@ -107,8 +125,7 @@
 ;; 矩形編集
 ;; -----------------------------------
 ;;cua-modeの設定
-;;矩形編集できないので、いったん無効化する
-;(cua-mode t)
+(cua-mode t)
 ;;CUAキーバインドを無効化
 ;(setq cua-enable-cua-keys nil)
 
@@ -118,9 +135,9 @@
 ;; パッケージ設定
 ;; -----------------------------------
 ;;行数を表示する
-;(global-linum-mode t)
+(global-linum-mode t)
 ;;行番号の表示領域として4桁分を予め確保する
-;(setq linum-format "%5d")
+(setq linum-format "%4d")
 ;;カーソルがどの関数の中にあるかを
 ;;モードラインに表示する
 (which-function-mode 1)
@@ -139,21 +156,6 @@
 
 
 
-;;load-pathを追加する関数
-(defun add-to-load-path(&rest paths)
-  (let (path)
-    (dolist (pathpathspaths)
-      (let ((default-directory
-	(expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	(normal-top-level-add-subdirs-to-load-path))))))
-
-;;引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
-
-
-
 
 
 
@@ -161,11 +163,32 @@
 ;; 各パッケージ設定
 ;; -----------------------------------
 ;;helm
+(require 'helm)
 (require 'helm-config)
-;;helm-M-xをM-xにバインドする
-(global-set-key (kbd "M-x") 'helm-M-x)
-;;前のM-xバインドを退避させる。#けど正しく動いてないっぽい
-(global-set-key (kbd "C-c M-x") 'M-x)
+;;helmコマンドのバインド
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c")) ;helmデフォルトのキーバインドはEmacs終了と似ているので無効化
+(setq helm-split-window-in-side-p           t ;helmバッファを現在のウィンドウで開く
+      helm-move-to-line-cycle-in-source     t ;最後の行で下にいくと最初の行に戻るようにする
+;      helm-ff-search-library-in-sexp        t ;'require' と 'declare-function' を用いたS式でライブラリ検索する
+      helm-scroll-amount                    8 ; M-<next> / M-<prior> でスクロールする量の設定
+;      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)
+(setq helm-autoresize-max-height 0)
+(setq helm-autoresize-min-height 35)
+(helm-autoresize-mode t)
+;;helm関連キーバインド設定
+(global-set-key (kbd "M-x")      'helm-M-x)
+(global-set-key (kbd "C-c M-x")  'M-x) ;前のM-xバインドを退避させる #けど正しく動いてないっぽい
+(global-set-key (kbd "M-y")      'helm-show-kill-ring)
+(global-set-key (kbd "C-x b")    'helm-mini)
+(global-set-key (kbd "C-x  C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h o")  'helm-occur)
+;;helm-surfrawのブラウザ設定
+(setq helm-surfraw-default-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+(helm-mode 1)
+
 
 
 ;;open-junk-file
@@ -178,8 +201,8 @@
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 ;;括弧の対応を取りながら編集
-;;(require 'paredit)
-;;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
+;(require 'paredit)
+;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
 ;;~/junk/以外で自動バイトコンパイル
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -221,15 +244,16 @@
 
 ;;dired
 ;;diredを2つのウィンドウで開いているときに、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
-;(setq dired-dwim-target t)
+(setq dired-dwim-target t)
 ;;ディレクトリを再帰的にコピーする
-;(setq dired-recursive-copies 'always)
+(setq dired-recursive-copies 'always)
 ;;diredバッファでC-sしたときにファイル名だけにマッチするように
 ;(setq dired-isearch-filenames t)
 
 ;;dired-toggle
+(require 'dired-toggle)
 ;;横幅を設定
-;(setq dired-toggle-window-size 20)
+(setq dired-toggle-window-size 20)
 
 ;;winner-mode
 (winner-mode 1)
@@ -237,6 +261,126 @@
 (global-set-key (kbd "C-q") 'winner-undo)
 ;;元のC-qを別なキーに退避させる
 (global-set-key (kbd "C-c q") 'quoted-insert)
+
+
+
+
+
+;; -----------------------------------
+;; 各パッケージ設定
+;; -----------------------------------
+;;helm
+(require 'helm)
+(require 'helm-config)
+;;helmコマンドのバインド
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c")) ;helmデフォルトのキーバインドはEmacs終了と似ているので無効化
+(setq helm-split-window-in-side-p           t ;helmバッファを現在のウィンドウで開く
+      helm-move-to-line-cycle-in-source     t ;最後の行で下にいくと最初の行に戻るようにする
+;      helm-ff-search-library-in-sexp        t ;'require' と 'declare-function' を用いたS式でライブラリ検索する
+      helm-scroll-amount                    8 ; M-<next> / M-<prior> でスクロールする量の設定
+;      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)
+(setq helm-autoresize-max-height 0)
+(setq helm-autoresize-min-height 35)
+(helm-autoresize-mode t)
+;;helm関連キーバインド設定
+(global-set-key (kbd "M-x")      'helm-M-x)
+(global-set-key (kbd "C-c M-x")  'M-x) ;前のM-xバインドを退避させる #けど正しく動いてないっぽい
+(global-set-key (kbd "M-y")      'helm-show-kill-ring)
+(global-set-key (kbd "C-x b")    'helm-mini)
+(global-set-key (kbd "C-x  C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h o")  'helm-occur)
+(global-set-key (kbd "C-c h g")  'helm-google-suggest)
+;;helm-surfrawのブラウザ設定
+;(setq helm-surfraw-default-browser-function 'browse-url-generic
+;      browse-url-generic-program "google-chrome")
+(helm-mode 1)
+
+
+
+;;open-junk-file
+(require 'open-junk-file)
+(setq open-junk-file-format "~/junk/%y%m%d/%H%M%S.")
+(global-set-key (kbd "C-x j") 'open-junk-file)
+
+;;lispxmp
+;;emacs-lisp-modeでC-c C-dを押すと解釈
+(require 'lispxmp)
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+;;括弧の対応を取りながら編集
+;(require 'paredit)
+;(add-hook 'emacs-lisp-mode-hook 'enable-paredit-hook)
+;;~/junk/以外で自動バイトコンパイル
+(require 'auto-async-byte-compile)
+(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+;;括弧に色付け
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
+;;emacsclient
+;;error: (void-function server-running-p)と出てエラーになるので、とりあえず無効化
+;(require 'server)
+;(unless (server-running-p)
+;  (server-start))
+
+;;auto-insatllの設定
+;(when (require 'auto-install nil t)
+                                        ;
+;;インストールディレクトリの設定
+;  (setq auto-install-directory "~/.emacs.d/elisp/")
+;  ;;EmacsWikiに登録されているelispの名前を取得する
+;  (auto-install-update-emacswiki-package-name t)
+;  ;;install-lispの関数を利用可能にする
+;  (auto-install-compatibility-setup))
+
+;;auto-complete
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-modes 'text-mode)        ;text-modeでも自動的に有効化する
+(add-to-list 'ac-modes 'fundamental-mode) ;fundamental-modeでも自動的に有効化する
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'yatex-mode)
+(ac-set-trigger-key "TAB")
+(setq ac-use-menu-map t) ;補完メニュー表示時にC-n/C-pで補完候補選択
+(setq ac-use-fuzzy t) ;曖昧マッチ
+
+;;elscreen
+;(require 'elscreen)
+;(setq elscreen-prefix-key (kbd "C-t"))
+;(elscreen-start)
+
+;;dired
+;;diredを2つのウィンドウで開いているときに、デフォルトの移動orコピー先をもう一方のdiredで開いているディレクトリにする
+(setq dired-dwim-target t)
+;;ディレクトリを再帰的にコピーする
+(setq dired-recursive-copies 'always)
+;;diredバッファでC-sしたときにファイル名だけにマッチするように
+;(setq dired-isearch-filenames t)
+
+;;dired-toggle
+(require 'dired-toggle)
+;;横幅を設定
+(setq dired-toggle-window-size 20)
+
+;;winner-mode
+(winner-mode 1)
+;;C-qで直前のウィンドウ構成に戻す
+(global-set-key (kbd "C-q") 'winner-undo)
+;;元のC-qを別なキーに退避させる
+(global-set-key (kbd "C-c q") 'quoted-insert)
+
+
+
+
+
+;; -----------------------------------
+;; alias
+;; -----------------------------------
+(add-to-list 'eshell-command-aliases-list (list "ls" "ls -al"))
+
+
+
 
 
 
