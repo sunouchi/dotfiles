@@ -365,3 +365,13 @@ you should place your code here."
 (global-set-key (kbd "C-q") 'winner-undo)
 ;;元のC-qを別なキーに退避させる
 (global-set-key (kbd "C-c q") 'quoted-insert)
+
+
+;; -------------------------------------
+;; Alias
+;; -------------------------------------
+(setq eshell-command-aliases-list
+      (append
+       (list
+        (list "la" "ls -al")
+        (list "updatedb" "sudo /usr/libexec/locate.updatedb"))))
