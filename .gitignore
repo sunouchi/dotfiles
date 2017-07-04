@@ -106,3 +106,9 @@ sftp-config.json
 
 ## ctags ##
 tags
+
+## emacs
+*.elc
+.emacs.d/elpa/*
+.emacs.d/eshell/*
+.emacs.d/tramp/*
