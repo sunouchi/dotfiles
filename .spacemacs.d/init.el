@@ -110,7 +110,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -374,6 +374,7 @@ you should place your code here."
       (append
        (list
         (list "la" "ls -al")
+        (list "ll" "ls -l")
         (list "updatedb" "sudo /usr/libexec/locate.updatedb"))))
 
 
@@ -395,3 +396,8 @@ you should place your code here."
 (global-set-key (kbd "C-+") 'increment-number-at-point)
 (global-set-key (kbd "C--") 'decrement-number-at-point)
 
+
+;; -------------------------------------
+;; tramp
+;; -------------------------------------
+(setq tramp-copy-size-limit nil)
