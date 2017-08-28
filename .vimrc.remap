@@ -24,8 +24,8 @@ nnoremap <Up>   gk
 nnoremap gj j
 
 " ;と;を入れ替える
-nnoremap ; :
-nnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
 
 " 削除キーでヤンクしない
 " nnoremap x "_x
