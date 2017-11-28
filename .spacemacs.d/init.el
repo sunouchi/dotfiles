@@ -41,7 +41,13 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+     ;; auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      ;; better-defaults
      emacs-lisp
      git
@@ -142,7 +148,7 @@ values."
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
                                ;;:size 13
-                               :size 15
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
