@@ -23,6 +23,6 @@ if [ -f $(brew --prefix)/etc/brew-wrap ];then
 fi
 
 # functions
-function title {
-  echo -ne "\033]0;$*\007"
-}
+# function title {
+#   echo -ne "\033]0;$*\007"
+# }
