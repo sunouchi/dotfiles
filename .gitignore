@@ -111,3 +111,6 @@ tags
 .emacs.d/elpa/*
 .emacs.d/eshell/*
 .emacs.d/tramp/*
+
+## その他
+.envrc
