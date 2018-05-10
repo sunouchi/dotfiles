@@ -1,5 +1,6 @@
-alias la='ls -la'
-alias ll='ls -la'
+alias ls='ls -F'
+alias la='ls -laF'
+alias ll='ls -llF'
 alias f='open .'
 alias df='df -h'
 alias gb='git branch'
@@ -13,6 +14,7 @@ alias be='bundle exec'
 alias today='date "+%Y-%m-%d"'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias ctags="`brew --prefix`/bin/ctags"
+alias vim='TERM=xterm-256color nvim'
 
 # Emacs (emacs-mac version installed with homebrew)
 alias em='/usr/local/bin/emacs'
