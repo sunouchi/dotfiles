@@ -1,0 +1,50 @@
+#j[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#depends = ['neosnippet-snippets', 'context_filetype.vim']
+#on_event = 'InsertCharPre'
+#oj_ft = 'snippet'
+#
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.config/nvim/plugins/denite.rc.vim'
+hook_add = '''
+  nnoremap <silent> <Space>f
+        \ :<C-u>Denite file/rec<CR>
+  nnoremap <silent> / :<C-u>Denite -buffer-name=search -auto-highlight
+        \ line<CR>
+  nnoremap <silent> * :<C-u>DeniteCursorWord -buffer-name=search
+        \ -auto-highlight -mode=normal line<CR>
+  nnoremap <silent> ;g :<C-u>Denite -buffer-name=search
+        \ -no-empty -mode=normal grep<CR>
+  nnoremap <silent> ft :<C-u>Denite filetype<CR>
+
+  nnoremap <silent> ;;
+        \ :<C-u>Denite command command_history<CR>
+'''
+
+#[[plugins]]
+#repo = 'rhysd/vim-operator-surround'
+#depends = 'vim-operator-user'
+#on_map = {n = '<Plug>'}
+#hook_add = '''
+#  nmap <silent>sa <Plug>(operator-surround-append)a
+#  nmap <silent>sd <Plug>(operator-surround-delete)a
+#  nmap <silent>sr <Plug>(operator-surround-replace)a
+#  nmap <silent>sc <Plug>(operator-surround-replace)a
+#'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+on_i = 1
+hook_source = '''
+call deoplete#enable()
+'''
+
+[[plugins]]
+repo = 'flazz/vim-colorschemes'
+hook_source = '''
+colorscheme luinnar
+'''
+

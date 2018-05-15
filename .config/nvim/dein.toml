@@ -1,5 +1,15 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = 'let g:deoplete#enable_at_startup = 1'
+repo = 'Shougo/dein.vim'
 
-repo = 'Shougo/denite.nvim'
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'haya14busa/vim-gtrans'
+
+[[plugins]]
+repo = 'nvie/vim-flake8'
+
+[[plugins]]
+repo = 'vim-syntastic/syntastic'
+
