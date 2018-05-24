@@ -30,3 +30,6 @@ fi
 # direnv
 eval "$(direnv hook zsh)"
 export EDITOR=vim
+
+# Rを使えるようにするため、zsh組み込み関数の r を無効化
+disable r
