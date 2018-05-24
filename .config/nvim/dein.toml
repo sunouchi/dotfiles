@@ -1,11 +1,8 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
-repo = 'haya14busa/vim-gtrans'
+#[[plugins]]
+#repo = 'Shougo/neomru.vim'
 
 [[plugins]]
 repo = 'nvie/vim-flake8'
@@ -13,3 +10,5 @@ repo = 'nvie/vim-flake8'
 [[plugins]]
 repo = 'vim-syntastic/syntastic'
 
+[[plugins]]
+repo = 'kana/vim-operator-user'
