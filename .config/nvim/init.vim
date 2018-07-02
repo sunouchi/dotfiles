@@ -175,41 +175,63 @@ endfunction
 
 
 
+" -------------------------------------------------------------------------------
+"  vim-plug
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-commentary'
+Plug 'nvie/vim-flake8'
+Plug 'vim-syntastic/syntastic'
+Plug 'kana/vim-operator-user'
+
+Plug 'Shougo/deoplete.nvim'
+" HTML入力を楽にする
+Plug 'mattn/emmet-vim'
+" 自動補完(Python)
+Plug 'davidhalter/jedi-vim'
+" 自動補完(JavaScript)
+Plug 'marijnh/tern_for_vim'
+" 閉じタグや閉じ括弧を自動的に挿入する
+Plug 'Townk/vim-autoclose'
+call plug#end()
+
+
+
 
 " -------------------------------------------------------------------------------
 "  dein.vim
 
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=/Users/sunouchi/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/Users/sunouchi/.cache/dein')
-  call dein#begin('/Users/sunouchi/.cache/dein')
-
-  " TOML を読み込み、キャッシュしておく
-  let g:rc_dir    = expand("~/.config/nvim/")
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-  call dein#load_toml(s:toml,      {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+" if &compatible
+"   set nocompatible               " Be iMproved
+" endif
+" 
+" " Required:
+" set runtimepath+=/Users/sunouchi/.cache/dein/repos/github.com/Shougo/dein.vim
+" 
+" " Required:
+" if dein#load_state('/Users/sunouchi/.cache/dein')
+"   call dein#begin('/Users/sunouchi/.cache/dein')
+" 
+"   " TOML を読み込み、キャッシュしておく
+"   let g:rc_dir    = expand("~/.config/nvim/")
+"   let s:toml      = g:rc_dir . '/dein.toml'
+"   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+"   call dein#load_toml(s:toml,      {'lazy': 0})
+"   call dein#load_toml(s:lazy_toml, {'lazy': 1})
+" 
+"   " Required:
+"   call dein#end()
+"   call dein#save_state()
+" endif
+" 
+" " Required:
+" filetype plugin indent on
+" syntax enable
+" 
+" " If you want to install not installed plugins on startup.
+" if dein#check_install()
+"   call dein#install()
+" endif
 
 
 
