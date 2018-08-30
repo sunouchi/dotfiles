@@ -28,4 +28,4 @@ alias tmux="TERM=screen-256color-bce tmux"
 #export EDITOR=vim
 
 # Display user and hostname in prompt
-PS1="[\u@\h \w\$] "/
+PS1="[\u@\h \w\$]\$ "
