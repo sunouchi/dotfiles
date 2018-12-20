@@ -68,6 +68,13 @@ set clipboard=unnamedplus
 
 
 " -------------------------------------------------------------------------------
+"  Color
+autocmd ColorScheme * highlight LineNr ctermfg=236
+colorscheme pablo
+
+
+
+" -------------------------------------------------------------------------------
 "  Key Mapping
 
 
