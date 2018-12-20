@@ -1,7 +1,7 @@
 alias ls='ls -G -F'
 alias la='ls -G -laF'
 alias ll='ls -G -llF'
-alias grep='grep --color=auto'
+alias grep='grep --color=auto --exclude=\*.{copy,cp,bak,old} --exclude-dir={.git,.svn}'
 alias f='open .'
 alias df='df -h'
 alias gb='git branch'
