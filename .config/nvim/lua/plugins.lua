@@ -1,13 +1,13 @@
 return {
-  -- Colorscheme (load first)
+  -- Colorscheme (load first).
+  -- Using the original Vimscript gruvbox; it has complete cterm (256-color)
+  -- highlight definitions, which matters for Apple Terminal (no 24-bit).
   {
-    "ellisonleao/gruvbox.nvim",
+    "morhetz/gruvbox",
     priority = 1000,
     lazy = false,
     config = function()
-      require("gruvbox").setup({
-        contrast = "medium",
-      })
+      vim.g.gruvbox_contrast_dark = "medium"
       vim.cmd.colorscheme("gruvbox")
     end,
   },
@@ -56,7 +56,8 @@ return {
     },
   },
 
-  -- LSP
+  -- LSP (uses the nvim 0.11+ vim.lsp.config / vim.lsp.enable API;
+  -- the older require("lspconfig") "framework" is deprecated).
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -65,12 +66,13 @@ return {
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local lsp = require("lspconfig")
       local caps = require("cmp_nvim_lsp").default_capabilities()
       local servers = { "intelephense", "pyright", "ts_ls", "bashls", "vimls" }
+
       for _, server in ipairs(servers) do
-        lsp[server].setup({ capabilities = caps })
+        vim.lsp.config(server, { capabilities = caps })
       end
+      vim.lsp.enable(servers)
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
