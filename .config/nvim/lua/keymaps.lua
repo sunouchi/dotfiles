@@ -6,11 +6,8 @@ map("n", "Y", "y$")
 -- Clear search highlight
 map("n", "<Esc><Esc>", ":nohl<CR>")
 
--- Tab operations
-map("n", "tc", ":<C-u>tabnew<CR>:tabmove<CR>")
-map("n", "tk", ":<C-u>tabclose<CR>")
-map("n", "tn", ":<C-u>tabnext<CR>")
-map("n", "tp", ":<C-u>tabprevious<CR>")
+-- Tab operations: use nvim built-ins (:tabnew / :tabclose / gt / gT)
+-- to avoid conflicting with netrw's buffer-local `t` mapping.
 
 -- Terminal → normal mode
 map("t", "<Esc>", [[<C-\><C-N>]])

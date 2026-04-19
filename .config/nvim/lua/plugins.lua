@@ -1,11 +1,14 @@
 return {
   -- Colorscheme (load first)
   {
-    "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("tokyonight-storm")
+      require("gruvbox").setup({
+        contrast = "medium",
+      })
+      vim.cmd.colorscheme("gruvbox")
     end,
   },
 
@@ -126,7 +129,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "tokyonight",
+          theme = "gruvbox",
           icons_enabled = false, -- Nerd Font がなくても化けないように
           section_separators = "",
           component_separators = "|",
