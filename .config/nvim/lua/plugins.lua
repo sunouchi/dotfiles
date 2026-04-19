@@ -1,14 +1,14 @@
 return {
   -- Colorscheme (load first).
-  -- Vimscript-based Nord port; has complete cterm (256-color) highlight
-  -- definitions, which matters for Apple Terminal (no 24-bit support).
+  -- Vimscript-based iceberg; designed with terminal (256-color) in mind
+  -- and has complete cterm highlight definitions. Works cleanly in
+  -- Apple Terminal without needing a custom palette.
   {
-    "nordtheme/vim",
-    name = "nord",
+    "cocopon/iceberg.vim",
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("nord")
+      vim.cmd.colorscheme("iceberg")
     end,
   },
 
@@ -131,7 +131,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "nord",
+          theme = "iceberg_dark",
           icons_enabled = false, -- Nerd Font がなくても化けないように
           section_separators = "",
           component_separators = "|",
