@@ -12,6 +12,58 @@ return {
     end,
   },
 
+  -- 256 色対応の代替カラースキーム候補（後で差し替えたいとき用のメモ）。
+  -- いずれも Vimscript 系で cterm 定義が完備。上の iceberg を無効化し、
+  -- 下のどれかのブロックを有効化して使う。
+  --
+  -- gruvbox（暖色系・長時間コーディング向き）:
+  -- {
+  --   "morhetz/gruvbox",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.g.gruvbox_contrast_dark = "medium"
+  --     vim.cmd.colorscheme("gruvbox")
+  --   end,
+  -- },
+  --
+  -- Solarized Dark（古典・色彩工学的に設計された寒色）:
+  -- {
+  --   "altercation/vim-colors-solarized",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd.colorscheme("solarized")
+  --   end,
+  -- },
+  --
+  -- Hybrid（地味な寒色系、iceberg と Solarized の中間くらいの暗さ）:
+  -- {
+  --   "w0ng/vim-hybrid",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd.colorscheme("hybrid")
+  --   end,
+  -- },
+  --
+  -- pablo（以前使っていた built-in。プラグイン不要）:
+  --   上の iceberg ブロックを削除し、init.lua のどこかで直接:
+  --     vim.cmd.colorscheme("pablo")
+  --
+  -- Nord（nordtheme.com の美しい見た目を出すには、Terminal.app の
+  --   プロファイルを Nord 公式パレットに差し替える必要あり。そのまま
+  --   使うと Normal 色が設定されず背景・本文色は現プロファイル依存）:
+  -- {
+  --   "nordtheme/vim",
+  --   name = "nord",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd.colorscheme("nord")
+  --   end,
+  -- },
+
   -- Treesitter (modern syntax highlighting)
   {
     "nvim-treesitter/nvim-treesitter",
