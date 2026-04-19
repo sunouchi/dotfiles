@@ -6,7 +6,6 @@ alias gb='git branch'
 alias gs='git status'
 alias ga='git add -A .'
 alias cdd='cd $HOME/Desktop'
-alias be='bundle exec'
 alias today='date "+%Y-%m-%d"'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 #alias ctags="`brew --prefix`/bin/ctags"
