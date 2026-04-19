@@ -4,10 +4,18 @@ vim.g.netrw_liststyle = 3
 -- Display
 vim.opt.number = true
 vim.opt.laststatus = 3
--- termguicolors is intentionally left off: Apple Terminal strips 24-bit
--- color escapes, which makes modern colorschemes fall back to the default
--- profile color. Colorschemes use their 256-color definitions instead.
 vim.opt.background = "dark"
+
+-- Apple Terminal strips 24-bit color escapes, so termguicolors=true
+-- makes modern colorschemes fall back to the profile default color.
+-- Force termguicolors=false, and keep forcing it after any colorscheme
+-- load (many themes re-enable it in their setup).
+vim.opt.termguicolors = false
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.opt.termguicolors = false
+  end,
+})
 
 -- Files / buffers
 vim.opt.swapfile = false
