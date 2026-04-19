@@ -1,42 +1,28 @@
-# pythonで.pycファイルを生成させない
-export PYTHONDONTWRITEBYTECODE=1
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# homebrew-file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-   source $(brew --prefix)/etc/brew-wrap
+# direnv
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
 fi
 
-# functions
-# function title {
-#   echo -ne "\033]0;$*\007"
-# }
+# mise (unified language runtime manager; replaces nvm/rbenv/pyenv)
+if command -v mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
 
-# direnv
-eval "$(direnv hook zsh)"
-export EDITOR=vim
+# homebrew-file (brew-wrap)
+if [ -n "$HOMEBREW_PREFIX" ] && [ -f "$HOMEBREW_PREFIX/etc/brew-wrap" ]; then
+  source "$HOMEBREW_PREFIX/etc/brew-wrap"
+fi
 
-# Rを使えるようにするため、zsh組み込み関数の r を無効化
-disable r
-
-# mise
-eval "$(mise activate zsh)"
-
-# Google Cloud SDK の設定
-source "$(brew --prefix)/Caskroom/gcloud-cli/548.0.0/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/gcloud-cli/548.0.0/google-cloud-sdk/completion.zsh.inc"
+# Google Cloud SDK (when installed via `brew install --cask gcloud-cli`)
+if [ -n "$HOMEBREW_PREFIX" ] && [ -d "$HOMEBREW_PREFIX/Caskroom/gcloud-cli" ]; then
+  _gcloud_version=$(/bin/ls -t "$HOMEBREW_PREFIX/Caskroom/gcloud-cli" 2>/dev/null | head -1)
+  if [ -n "$_gcloud_version" ]; then
+    _gcloud_sdk="$HOMEBREW_PREFIX/Caskroom/gcloud-cli/$_gcloud_version/google-cloud-sdk"
+    [ -f "$_gcloud_sdk/path.zsh.inc" ]       && source "$_gcloud_sdk/path.zsh.inc"
+    [ -f "$_gcloud_sdk/completion.zsh.inc" ] && source "$_gcloud_sdk/completion.zsh.inc"
+  fi
+  unset _gcloud_version _gcloud_sdk
+fi

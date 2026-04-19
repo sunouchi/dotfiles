@@ -14,4 +14,5 @@ ln -s ~/dotfiles/.tmux.conf ~/
 #ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.zshrc ~/
+ln -s ~/dotfiles/.zprofile ~/
 ln -s ~/dotfiles/.bashrc ~/

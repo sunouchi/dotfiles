@@ -11,12 +11,7 @@ alias cdd='cd $HOME/Desktop'
 alias pwp='pwd|pbcopy'
 alias pbc='pbcopy'
 alias rmd='find ./ -name ".DS_Store" -print -exec rm {} ";"'
-alias be='bundle exec'
 alias today='date "+%Y%m%d"'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
-alias ctags="`brew --prefix`/bin/ctags"
 alias vim='TERM=xterm-256color nvim'
 alias top='htop'
-
-# Emacs (emacs-mac version installed with homebrew)
-alias em='/usr/local/bin/emacs'
