@@ -125,7 +125,12 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
       require("lualine").setup({
-        options = { theme = "tokyonight" },
+        options = {
+          theme = "tokyonight",
+          icons_enabled = false, -- Nerd Font がなくても化けないように
+          section_separators = "",
+          component_separators = "|",
+        },
       })
     end,
   },
