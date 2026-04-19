@@ -4,7 +4,9 @@ vim.g.netrw_liststyle = 3
 -- Display
 vim.opt.number = true
 vim.opt.laststatus = 3
-vim.opt.termguicolors = true  -- required for tokyonight and other modern colorschemes to render their full palette
+-- termguicolors is intentionally left off: Apple Terminal strips 24-bit
+-- color escapes, which makes modern colorschemes fall back to the default
+-- profile color. Colorschemes use their 256-color definitions instead.
 vim.opt.background = "dark"
 
 -- Files / buffers
