@@ -1,14 +1,14 @@
 return {
   -- Colorscheme (load first).
-  -- Using the original Vimscript gruvbox; it has complete cterm (256-color)
-  -- highlight definitions, which matters for Apple Terminal (no 24-bit).
+  -- Vimscript-based Nord port; has complete cterm (256-color) highlight
+  -- definitions, which matters for Apple Terminal (no 24-bit support).
   {
-    "morhetz/gruvbox",
+    "nordtheme/vim",
+    name = "nord",
     priority = 1000,
     lazy = false,
     config = function()
-      vim.g.gruvbox_contrast_dark = "medium"
-      vim.cmd.colorscheme("gruvbox")
+      vim.cmd.colorscheme("nord")
     end,
   },
 
@@ -131,7 +131,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "gruvbox",
+          theme = "nord",
           icons_enabled = false, -- Nerd Font がなくても化けないように
           section_separators = "",
           component_separators = "|",
