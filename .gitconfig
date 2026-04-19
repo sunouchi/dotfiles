@@ -2,8 +2,8 @@
 # .gitconfig
 #
 [user]
-  name = sunouchi
-  email = t@sunouchi.jp 
+	name = sunouchi
+	email = sunouchi@akba.jp
 [include]
   path = ~/.gitconfig_local
 [color]
@@ -73,3 +73,8 @@
 	trustExitCode = true
 [http]
 	sslVerify = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

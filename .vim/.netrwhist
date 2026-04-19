@@ -1,3 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/sunouchitakanari/Desktop/_tmp/151104/test'
+let g:netrw_dirhist_2='/Users/sunouchi'
+let g:netrw_dirhist_3='/Users/sunouchi/.ssh'
+let g:netrw_dirhist_4='/Users/sunouchi/dotfiles'
+let g:netrw_dirhist_5='/Users/sunouchi/Dropbox/Web制作/projects/green_hill/src'
+let g:netrw_dirhist_6='/Users/sunouchi/Dropbox/Web制作/projects/green_hill/src/Schedule'
+let g:netrw_dirhist_7='/Users/sunouchi/Dropbox/Web制作/projects/green_hill/src'
+let g:netrw_dirhist_8='/Users/sunouchi/Dropbox/Web制作/projects/green_hill/src/Schedule'
