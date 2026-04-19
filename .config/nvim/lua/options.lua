@@ -4,6 +4,8 @@ vim.g.netrw_liststyle = 3
 -- Display
 vim.opt.number = true
 vim.opt.laststatus = 3
+vim.opt.termguicolors = true  -- required for tokyonight and other modern colorschemes to render their full palette
+vim.opt.background = "dark"
 
 -- Files / buffers
 vim.opt.swapfile = false
@@ -29,10 +31,3 @@ vim.opt.visualbell = false
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
-
--- Preserve subtle line-number color from the previous setup
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    vim.api.nvim_set_hl(0, "LineNr", { ctermfg = 236 })
-  end,
-})
