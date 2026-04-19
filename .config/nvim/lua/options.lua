@@ -17,6 +17,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
+-- Colorscheme (built-in, no plugin required).
+-- See plugins.lua for commented-out alternatives.
+vim.cmd.colorscheme("pablo")
+
 -- Files / buffers
 vim.opt.swapfile = false
 vim.opt.backup = false

@@ -1,20 +1,21 @@
 return {
-  -- Colorscheme (load first).
-  -- Vimscript-based iceberg; designed with terminal (256-color) in mind
-  -- and has complete cterm highlight definitions. Works cleanly in
-  -- Apple Terminal without needing a custom palette.
-  {
-    "cocopon/iceberg.vim",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      vim.cmd.colorscheme("iceberg")
-    end,
-  },
-
-  -- 256 色対応の代替カラースキーム候補（後で差し替えたいとき用のメモ）。
-  -- いずれも Vimscript 系で cterm 定義が完備。上の iceberg を無効化し、
-  -- 下のどれかのブロックを有効化して使う。
+  -- カラースキーム:
+  -- 現在は nvim 組み込みの `pablo` を使用（options.lua で設定）。
+  -- プラグイン不要で、どのマシンでも追加インストールなしに動く。
+  --
+  -- 過去に試した代替候補を以下にコメントアウトで残す。上の pablo を
+  -- 無効化（options.lua の colorscheme 行を外す）し、下のどれかのブロックを
+  -- 有効化して使う。
+  --
+  -- iceberg（寒色系、ターミナル前提設計、Normal fg/bg も完備）:
+  -- {
+  --   "cocopon/iceberg.vim",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd.colorscheme("iceberg")
+  --   end,
+  -- },
   --
   -- gruvbox（暖色系・長時間コーディング向き）:
   -- {
@@ -46,10 +47,6 @@ return {
   --     vim.cmd.colorscheme("hybrid")
   --   end,
   -- },
-  --
-  -- pablo（以前使っていた built-in。プラグイン不要）:
-  --   上の iceberg ブロックを削除し、init.lua のどこかで直接:
-  --     vim.cmd.colorscheme("pablo")
   --
   -- Nord（nordtheme.com の美しい見た目を出すには、Terminal.app の
   --   プロファイルを Nord 公式パレットに差し替える必要あり。そのまま
@@ -183,7 +180,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "iceberg_dark",
+          theme = "auto",
           icons_enabled = false, -- Nerd Font がなくても化けないように
           section_separators = "",
           component_separators = "|",
