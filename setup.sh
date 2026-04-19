@@ -16,3 +16,9 @@ ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.zprofile ~/
 ln -s ~/dotfiles/.bashrc ~/
+
+# XDG config
+mkdir -p ~/.config
+ln -s ~/dotfiles/.config/nvim ~/.config/nvim
+mkdir -p ~/.config/mise
+ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
