@@ -115,3 +115,6 @@ tags
 
 ## その他
 .envrc
+
+## scratch (ローカル作業用メモ、Git 管理対象外) ##
+scratch/
