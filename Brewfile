@@ -72,3 +72,11 @@ brew "rcmdnk/file/brew-file"
 
 # -- GCP --
 cask "gcloud-cli"
+
+# -- GUI apps --
+# Claude Code (CLI) は cask ではなく公式インストーラで入れる。README 参照。
+cask "google-chrome"
+cask "claude"              # Claude Desktop
+cask "bettertouchtool"
+cask "speedtest"           # Speedtest by Ookla
+cask "visual-studio-code"
