@@ -118,3 +118,5 @@ tags
 
 ## scratch (ローカル作業用メモ、Git 管理対象外) ##
 scratch/
+
+**/.claude/settings.local.json
