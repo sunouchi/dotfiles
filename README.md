@@ -43,6 +43,17 @@ npm 経由ではなく公式インストーラを使う（公式推奨。自己�
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
+### 5. macOS の設定を反映
+
+GUI（システム設定）からは設定できない項目を反映する。
+
+```bash
+./setup-macos.sh
+```
+
+- トラックパッドのポインタ速度を 5 にする（システム設定の最大 3 より速い）。**ログアウト / 再起動後**に有効。
+- Finder で隠しファイルを常に表示する（⌘⇧. のトグルだと誤操作で戻るため、明示的に設定）。
+
 ## 主な内容
 
 - zsh — `.zshrc`, `.zshrc.custom`, `.zshrc.alias`, `.zprofile`
@@ -51,5 +62,6 @@ curl -fsSL https://claude.ai/install.sh | bash
 - git — `.gitconfig`, `.gitignore`
 - Homebrew — `Brewfile`（CLI ツール + GUI アプリの cask）
 - VS Code — `setup-vscode.sh`
+- macOS — `setup-macos.sh`（トラックパッド速度 / 隠しファイル表示など defaults 設定）
 
 言語ランタイム（node / python / ruby 等）は [mise](https://mise.jdx.dev/) で管理。
