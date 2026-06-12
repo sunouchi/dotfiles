@@ -35,3 +35,8 @@ PROMPT='%m : %2~ ${vcs_info_msg_0_}%(?.%F{green}.%F{red})>%f '
 # -- Sub-configs --
 source $HOME/dotfiles/.zshrc.alias
 source $HOME/dotfiles/.zshrc.custom
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
