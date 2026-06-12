@@ -33,7 +33,6 @@ EXTENSIONS=(
   eamodio.gitlens
   emilast.logfilehighlighter
   esbenp.prettier-vscode
-  felixfbecker.php-intellisense
   formulahendry.auto-rename-tag
   gera2ld.markmap-vscode
   github.vscode-pull-request-github
@@ -68,7 +67,6 @@ EXTENSIONS=(
   shardulm94.trailing-spaces
   silvenon.mdx
   sophisticode.php-formatter
-  stevencl.adddoccomments
   tomoki1207.pdf
   tushortz.python-extended-snippets
   unifiedjs.vscode-mdx
@@ -113,6 +111,12 @@ read -r -d '' SETTINGS_JSON <<'SETTINGS_EOF' || true
     "liveServer.settings.donotShowInfoMsg": true
 }
 SETTINGS_EOF
+# 表示言語（日本語化）。ms-ceintl.vscode-language-pack-ja と組みで効く。
+read -r -d '' LOCALE_JSON <<'LOCALE_EOF' || true
+{
+    "locale": "ja"
+}
+LOCALE_EOF
 # ===== END VSCODE DATA =====
 
 # code CLI を探す（PATH 優先、無ければアプリ同梱バイナリ）。
@@ -153,6 +157,14 @@ if [ "${1:-}" = "--export" ]; then
     echo "read -r -d '' SETTINGS_JSON <<'SETTINGS_EOF' || true"
     cat "$USER_DIR/settings.json"
     echo "SETTINGS_EOF"
+    echo "# 表示言語（日本語化）。ms-ceintl.vscode-language-pack-ja と組みで効く。"
+    echo "read -r -d '' LOCALE_JSON <<'LOCALE_EOF' || true"
+    if [ -f "$USER_DIR/locale.json" ]; then
+      cat "$USER_DIR/locale.json"
+    else
+      printf '{\n    "locale": "ja"\n}\n'
+    fi
+    echo "LOCALE_EOF"
     echo "$end"
     awk -v e="$end" 'p{print} $0==e{p=1}' "$0"
   } > "$tmp"
@@ -184,5 +196,14 @@ if [ -f "$USER_DIR/settings.json" ]; then
 fi
 printf '%s\n' "$SETTINGS_JSON" > "$USER_DIR/settings.json"
 echo "settings.json を反映しました: $USER_DIR/settings.json"
+
+# --- locale.json を反映（日本語化。既存はバックアップ）---
+if [ -f "$USER_DIR/locale.json" ]; then
+  bak="$USER_DIR/locale.json.bak.$(date +%Y%m%d%H%M%S)"
+  cp "$USER_DIR/locale.json" "$bak"
+  echo "既存 locale.json をバックアップ: $bak"
+fi
+printf '%s\n' "$LOCALE_JSON" > "$USER_DIR/locale.json"
+echo "locale.json を反映しました（表示言語: ja）: $USER_DIR/locale.json"
 
 echo "完了。VSCode を再起動すると設定が反映されます。"
