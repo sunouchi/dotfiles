@@ -163,10 +163,17 @@ if [ "${1:-}" = "--export" ]; then
 fi
 
 # --- 拡張機能をインストール ---
+# 1 個失敗しても全体は止めず、失敗したものは最後にまとめて報告する。
 echo "拡張機能を ${#EXTENSIONS[@]} 個インストールします..."
+FAILED_EXTS=()
 for ext in "${EXTENSIONS[@]}"; do
-  "$CODE" --install-extension "$ext" --force
+  if ! "$CODE" --install-extension "$ext" --force; then
+    FAILED_EXTS+=("$ext")
+  fi
 done
+if [ "${#FAILED_EXTS[@]}" -gt 0 ]; then
+  echo "警告: 次の拡張機能はインストールできませんでした（提供終了などの可能性）: ${FAILED_EXTS[*]}" >&2
+fi
 
 # --- settings.json を反映（既存はバックアップ）---
 mkdir -p "$USER_DIR"
