@@ -22,3 +22,5 @@ mkdir -p ~/.config
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 mkdir -p ~/.config/mise
 ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
+mkdir -p ~/.config/herdr
+ln -s ~/dotfiles/.config/herdr/config.toml ~/.config/herdr/config.toml

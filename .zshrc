@@ -40,3 +40,6 @@ source $HOME/dotfiles/.zshrc.custom
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# herdr (~/.local/bin)
+export PATH="$HOME/.local/bin:$PATH"
