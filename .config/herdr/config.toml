@@ -1,3 +1,6 @@
 [keys]
 prefix = "ctrl+space"
 split_vertical = "prefix+|"
+
+[ui]
+agent_panel_sort = "priority"
