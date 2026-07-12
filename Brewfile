@@ -28,6 +28,7 @@ brew "tmux"
 brew "tree"
 brew "htop"
 brew "fzf"
+brew "glow"                # Markdown preview in terminal
 brew "direnv"
 brew "coreutils"
 brew "reattach-to-user-namespace"
