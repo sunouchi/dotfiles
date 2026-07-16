@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sunouchi.claude-session-reaper</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/sunouchi/dotfiles/bin/claude-session-reaper.sh</string>
+    </array>
+
+    <!-- 6 時間ごと(21600 秒)に起動。ロード時にも 1 回走る -->
+    <key>StartInterval</key>
+    <integer>21600</integer>
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/sunouchi/Library/Logs/claude-session-reaper/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/sunouchi/Library/Logs/claude-session-reaper/stderr.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>
