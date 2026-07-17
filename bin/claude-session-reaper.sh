@@ -2,7 +2,7 @@
 #
 # claude-session-reaper.sh
 #
-# 起動から一定時間(既定 36 時間)以上経過した Claude Code の CLI セッション
+# 起動から一定時間(既定 28 時間)以上経過した Claude Code の CLI セッション
 # (`claude` バイナリ)を検出し、TERM -> KILL で終了させる。
 #
 # 目的: 閉じ忘れ / ハングした古いセッションが CPU を焼き続けたり
@@ -16,7 +16,7 @@
 set -u
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
-THRESHOLD_HOURS="${THRESHOLD_HOURS:-36}"
+THRESHOLD_HOURS="${THRESHOLD_HOURS:-28}"
 DRY_RUN="${DRY_RUN:-0}"                 # 1 なら kill せずログのみ
 THRESHOLD_SECS=$(( THRESHOLD_HOURS * 3600 ))
 

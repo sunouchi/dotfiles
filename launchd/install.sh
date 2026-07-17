@@ -3,7 +3,7 @@
 # install.sh — claude-session-reaper の LaunchAgent をこのマシンに登録する。
 #
 # dotfiles を clone した先で実行すると、6 時間ごとに古い Claude Code CLI
-# セッション(起動から 36H 超)を終了する監視が有効になる。
+# セッション(起動から 28H 超)を終了する監視が有効になる。
 # 冪等: 何度実行しても既存を bootout してから再登録する。
 #
 set -eu
