@@ -33,6 +33,7 @@ brew "direnv"
 brew "coreutils"
 brew "reattach-to-user-namespace"
 brew "tree-sitter"
+brew "rsync"               # macOS 標準の openrsync は iCloud ファイルの mmap 読みで失敗する（akebia intake が使用）
 
 # -- Build toolchain --
 brew "cmake"
