@@ -69,6 +69,11 @@ brew "libtiff"
 brew "webp"
 brew "freetype"
 
+# -- Text layout engine (required by WeasyPrint to render PDFs) --
+# NOTE: WeasyPrint dlopen()s these, so the Python interpreter must match the
+# library architecture (arm64). The x86_64 Python from mise cannot load them.
+brew "pango"
+
 # -- Brewfile management (so this file itself is maintainable) --
 brew "rcmdnk/file/brew-file"
 
