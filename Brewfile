@@ -87,3 +87,4 @@ cask "claude"              # Claude Desktop
 cask "bettertouchtool"
 cask "speedtest"           # Speedtest by Ookla
 cask "visual-studio-code"
+cask "tailscale-app"      # Mac mini の freee 再認可リスナーを外から叩くため（tailscale serve）
