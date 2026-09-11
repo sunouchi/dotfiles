@@ -76,6 +76,7 @@ brew "pango"
 
 # -- Brewfile management (so this file itself is maintainable) --
 brew "rcmdnk/file/brew-file"
+brew "caddy"  # akebia 財務ダッシュボードの自宅 LAN 配信サーバー（Mac mini、app/dashboard/lan/）
 
 # -- GCP --
 cask "gcloud-cli"
