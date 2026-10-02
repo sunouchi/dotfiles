@@ -91,5 +91,6 @@ cask "visual-studio-code"
 cask "tailscale-app"      # Mac mini の freee 再認可リスナーを外から叩くため（tailscale serve）
 
 # -- Fonts (ANJ デザイン量産：小島さんの .ai が使う書体。Illustrator での代替描画を防ぐ) --
-cask "font-montserrat"        # Montserrat（Google Fonts, OFL）
+# Montserrat は cask だと可変フォントのみで Illustrator の PDF 書き出しが Thin になるため、静的 OTF を手動で入れる（OFL）:
+#   for w in Regular Medium SemiBold Bold; do curl -L -o ~/Library/Fonts/Montserrat-$w.otf https://github.com/JulietaUla/Montserrat/raw/master/fonts/otf/Montserrat-$w.otf; done
 cask "font-noto-sans-cjk-jp"  # Noto Sans CJK JP（Medium/Bold を含む OTF）
