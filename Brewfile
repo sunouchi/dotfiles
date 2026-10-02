@@ -89,3 +89,7 @@ cask "bettertouchtool"
 cask "speedtest"           # Speedtest by Ookla
 cask "visual-studio-code"
 cask "tailscale-app"      # Mac mini の freee 再認可リスナーを外から叩くため（tailscale serve）
+
+# -- Fonts (ANJ デザイン量産：小島さんの .ai が使う書体。Illustrator での代替描画を防ぐ) --
+cask "font-montserrat"        # Montserrat（Google Fonts, OFL）
+cask "font-noto-sans-cjk-jp"  # Noto Sans CJK JP（Medium/Bold を含む OTF）
